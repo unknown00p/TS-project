@@ -7,13 +7,15 @@
     "@types/bun": "latest",
     "@types/figlet": "^1.7.0"
   },
-   "scripts": { 
+  "scripts": {
     "dev": "bun run index.ts"
   },
   "peerDependencies": {
     "typescript": "^5"
   },
   "dependencies": {
-    "figlet": "^1.11.0"
+    "bullmq": "^5.76.6",
+    "figlet": "^1.11.0",
+    "zod": "^4.4.3"
   }
 }
