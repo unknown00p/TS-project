@@ -8,14 +8,15 @@
     "@types/figlet": "^1.7.0"
   },
   "scripts": {
-    "dev": "bun run index.ts"
+    "dev": "bun --watch run src/index.ts",
+    "trigger": "bun run event.trigger.ts"
   },
   "peerDependencies": {
     "typescript": "^5"
   },
   "dependencies": {
     "bullmq": "^5.76.6",
-    "figlet": "^1.11.0",
+    "ioredis": "^5.10.1",
     "zod": "^4.4.3"
   }
 }
