@@ -1,5 +1,5 @@
-// import "./handlers/user-signup.handler"
 import "./consumers/notification.consumer"
+import "./handlers/user-signup.handler"
 
 const server = Bun.serve({
   port: 3000,

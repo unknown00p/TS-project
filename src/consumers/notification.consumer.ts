@@ -1,5 +1,7 @@
 import { Worker } from "bullmq";
 import { connection } from "../config/reddis.connection";
+import { transporter } from "../services/email.service";
+import nodemailer from 'nodemailer';
 
 type signup_schema = {
   id: number;
@@ -9,11 +11,32 @@ type signup_schema = {
 const signup_worker = new Worker(
   "signup-queue",
   async (job) => {
-    return job
+    console.log("job");
   },
   {
     connection,
   },
 );
+
+// signup_worker.on("completed", async (job) => {
+//     const jobData: signup_schema = await job.data;
+//     console.log(job.data);
+
+//   try {
+//     const info = await transporter.sendMail({
+//       from: '"Explorar Team" <araj68144@gmail.com>', // sender address
+//       to: "rollrat6@gmail.com", // list of recipients
+//       subject: "Hello", // subject line
+//       text: "Hello From TS-notifiction-system", // plain text body
+//       html: "<b>Hello raj</b>", // HTML body
+//     });
+
+//     console.log("Message sent: %s", info.messageId);
+//     // Preview URL is only available when using an Ethereal test account
+//     console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+//   } catch (err) {
+//     console.error("Error while sending mail:", err);
+//   }
+// });
 
 export { signup_worker };

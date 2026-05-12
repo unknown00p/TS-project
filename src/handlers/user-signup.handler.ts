@@ -8,16 +8,16 @@ type signup_schema = {
 };
 
 signup_worker.on("completed", async (job) => {
-  console.log(job.data);
-  const jobData: signup_schema = await job.data;
+    const jobData: signup_schema = await job.data;
+    console.log(job.data);
 
   try {
     const info = await transporter.sendMail({
-      from: '"Example Team" <team@example.com>', // sender address
-      to: "alice@example.com, bob@example.com", // list of recipients
+      from: '"Explorar Team" <araj68144@gmail.com>', // sender address
+      to: jobData.email, // list of recipients
       subject: "Hello", // subject line
-      text: "Hello world?", // plain text body
-      html: "<b>Hello world?</b>", // HTML body
+      text: "Hello From TS-notifiction-system", // plain text body
+      html: "<b>Welcome to the TS-notifiction-service</b>", // HTML body
     });
 
     console.log("Message sent: %s", info.messageId);
